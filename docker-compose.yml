@@ -1,0 +1,41 @@
+version: "3.7"
+services:
+  nginx:
+    container_name: ocr-queue_nginx
+    build: ./skywire-docker/nginx
+    ports:
+
+      - "80:80"
+      - "443:443"
+    links:
+      - phpfpm
+
+    volumes:
+
+      - ./:/var/www/html
+
+    hostname: docker.ocr-queue.com
+    depends_on: 
+      - phpfpm
+
+  phpfpm:
+    container_name: ocr-queue_phpfpm
+    build: ./skywire-docker/php-fpm/72
+    links:
+      - mysql
+    volumes:
+      - ./:/var/www/html
+
+    environment:
+      - PHP_IDE_CONFIG=serverName=skywire-docker
+
+  mysql:
+    container_name: ocr-queue_mysql
+    image: percona:5.7 # versions available at https://hub.docker.com/_/percona/
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./skywire-docker/data:/var/lib/mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=docker
