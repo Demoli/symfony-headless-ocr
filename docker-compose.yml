@@ -22,6 +22,7 @@ services:
     build: ./skywire-docker/php-fpm/72
     links:
       - mysql
+      - rabbitmq
     volumes:
       - ./:/var/www/html
 
