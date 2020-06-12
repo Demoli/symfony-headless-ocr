@@ -13,6 +13,7 @@ namespace App\Tests\Message;
 
 use App\Message\OcrMessage;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
+use Symfony\Component\Messenger\MessageBusInterface;
 
 class OcrMessageTest extends KernelTestCase
 {
@@ -23,11 +24,12 @@ class OcrMessageTest extends KernelTestCase
 
     public function testMessageBus()
     {
+        /** @var MessageBusInterface $bus */
         $bus = self::$container->get(MessageBusInterface::class);
 
         $message = new OcrMessage();
         $message->setContent('Foobar');
 
-        $bus->dispatchMessage($message);
+        $bus->dispatch($message);
     }
 }
