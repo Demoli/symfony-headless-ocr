@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f73a95fc69cc2f4a32b7447164609e98",
+    "content-hash": "c11b591830eb05f9599f494fae5af62b",
     "packages": [
         {
             "name": "doctrine/instantiator",
@@ -59,20 +59,6 @@
             "keywords": [
                 "constructor",
                 "instantiate"
-            ],
-            "funding": [
-                {
-                    "url": "https://www.doctrine-project.org/sponsorship.html",
-                    "type": "custom"
-                },
-                {
-                    "url": "https://www.patreon.com/phpdoctrine",
-                    "type": "patreon"
-                },
-                {
-                    "url": "https://tidelift.com/funding/github/packagist/doctrine%2Finstantiator",
-                    "type": "tidelift"
-                }
             ],
             "time": "2020-05-29T17:27:14+00:00"
         },
@@ -1260,8 +1246,8 @@
             "version": "7.5.99",
             "dist": {
                 "type": "path",
-                "url": "/opt/project/vendor/symfony/phpunit-bridge",
-                "reference": "99569bacf7df1a6d16fc54cc77133ed08015a919"
+                "url": "/home/neil/development/symfony-projects/ocr-queue/vendor/symfony/phpunit-bridge",
+                "reference": "f42ddec1a216b81908385c5dc293ce5f58fe54de"
             },
             "require": {
                 "php": ">=5.5.9"
@@ -1310,10 +1296,7 @@
                 }
             ],
             "description": "Symfony PHPUnit Bridge",
-            "homepage": "https://symfony.com",
-            "transport-options": {
-                "relative": false
-            }
+            "homepage": "https://symfony.com"
         },
         {
             "name": "symfony/polyfill-ctype",
@@ -1370,20 +1353,6 @@
                 "ctype",
                 "polyfill",
                 "portable"
-            ],
-            "funding": [
-                {
-                    "url": "https://symfony.com/sponsor",
-                    "type": "custom"
-                },
-                {
-                    "url": "https://github.com/fabpot",
-                    "type": "github"
-                },
-                {
-                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
-                    "type": "tidelift"
-                }
             ],
             "time": "2020-05-12T16:14:59+00:00"
         },
@@ -1494,6 +1463,5 @@
     },
     "platform-dev": {
         "ext-pdo": "*"
-    },
-    "plugin-api-version": "1.1.0"
+    }
 }

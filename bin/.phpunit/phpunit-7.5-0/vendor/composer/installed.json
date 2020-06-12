@@ -55,20 +55,6 @@
         "keywords": [
             "constructor",
             "instantiate"
-        ],
-        "funding": [
-            {
-                "url": "https://www.doctrine-project.org/sponsorship.html",
-                "type": "custom"
-            },
-            {
-                "url": "https://www.patreon.com/phpdoctrine",
-                "type": "patreon"
-            },
-            {
-                "url": "https://tidelift.com/funding/github/packagist/doctrine%2Finstantiator",
-                "type": "tidelift"
-            }
         ]
     },
     {
@@ -1302,8 +1288,8 @@
         "version_normalized": "7.5.99.0",
         "dist": {
             "type": "path",
-            "url": "/opt/project/vendor/symfony/phpunit-bridge",
-            "reference": "99569bacf7df1a6d16fc54cc77133ed08015a919"
+            "url": "/home/neil/development/symfony-projects/ocr-queue/vendor/symfony/phpunit-bridge",
+            "reference": "f42ddec1a216b81908385c5dc293ce5f58fe54de"
         },
         "require": {
             "php": ">=5.5.9"
@@ -1353,10 +1339,7 @@
             }
         ],
         "description": "Symfony PHPUnit Bridge",
-        "homepage": "https://symfony.com",
-        "transport-options": {
-            "relative": false
-        }
+        "homepage": "https://symfony.com"
     },
     {
         "name": "symfony/polyfill-ctype",
@@ -1416,20 +1399,6 @@
             "ctype",
             "polyfill",
             "portable"
-        ],
-        "funding": [
-            {
-                "url": "https://symfony.com/sponsor",
-                "type": "custom"
-            },
-            {
-                "url": "https://github.com/fabpot",
-                "type": "github"
-            },
-            {
-                "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
-                "type": "tidelift"
-            }
         ]
     },
     {

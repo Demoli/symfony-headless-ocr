@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit129949e2b3001a34ca3127a009de9a4c
+class ComposerStaticInit69fb384b956a2b04ea131e61db9ef5f2
 {
     public static $files = array (
         '320cde22f66dd4f5d3fd621d3e88b98f' => __DIR__ . '/..' . '/symfony/polyfill-ctype/bootstrap.php',
@@ -748,6 +748,8 @@ class ComposerStaticInit129949e2b3001a34ca3127a009de9a4c
         'Symfony\\Bridge\\PhpUnit\\Legacy\\CoverageListenerForV6' => __DIR__ . '/..' . '/symfony/phpunit-bridge/Legacy/CoverageListenerForV6.php',
         'Symfony\\Bridge\\PhpUnit\\Legacy\\CoverageListenerForV7' => __DIR__ . '/..' . '/symfony/phpunit-bridge/Legacy/CoverageListenerForV7.php',
         'Symfony\\Bridge\\PhpUnit\\Legacy\\CoverageListenerTrait' => __DIR__ . '/..' . '/symfony/phpunit-bridge/Legacy/CoverageListenerTrait.php',
+        'Symfony\\Bridge\\PhpUnit\\Legacy\\ExpectDeprecationTraitBeforeV8_4' => __DIR__ . '/..' . '/symfony/phpunit-bridge/Legacy/ExpectDeprecationTraitBeforeV8_4.php',
+        'Symfony\\Bridge\\PhpUnit\\Legacy\\ExpectDeprecationTraitForV8_4' => __DIR__ . '/..' . '/symfony/phpunit-bridge/Legacy/ExpectDeprecationTraitForV8_4.php',
         'Symfony\\Bridge\\PhpUnit\\Legacy\\PolyfillAssertTrait' => __DIR__ . '/..' . '/symfony/phpunit-bridge/Legacy/PolyfillAssertTrait.php',
         'Symfony\\Bridge\\PhpUnit\\Legacy\\PolyfillTestCaseTrait' => __DIR__ . '/..' . '/symfony/phpunit-bridge/Legacy/PolyfillTestCaseTrait.php',
         'Symfony\\Bridge\\PhpUnit\\Legacy\\SetUpTearDownTraitForV5' => __DIR__ . '/..' . '/symfony/phpunit-bridge/Legacy/SetUpTearDownTraitForV5.php',
@@ -847,9 +849,9 @@ class ComposerStaticInit129949e2b3001a34ca3127a009de9a4c
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInit129949e2b3001a34ca3127a009de9a4c::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit129949e2b3001a34ca3127a009de9a4c::$prefixDirsPsr4;
-            $loader->classMap = ComposerStaticInit129949e2b3001a34ca3127a009de9a4c::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit69fb384b956a2b04ea131e61db9ef5f2::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit69fb384b956a2b04ea131e61db9ef5f2::$prefixDirsPsr4;
+            $loader->classMap = ComposerStaticInit69fb384b956a2b04ea131e61db9ef5f2::$classMap;
 
         }, null, ClassLoader::class);
     }

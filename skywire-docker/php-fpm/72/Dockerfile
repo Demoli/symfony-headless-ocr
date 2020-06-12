@@ -26,19 +26,9 @@ RUN apt-get update && apt-get install -y \
             wget \
         && docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/\
         && docker-php-ext-install -j$(nproc) gd \
-        && pecl install xdebug-2.8.0 mcrypt-1.0.1 \
+        && pecl install xdebug-2.8.0 mcrypt-1.0.1 redis \
         && docker-php-ext-install pdo_mysql soap intl bcmath xsl zip sockets \
-        && docker-php-ext-enable opcache xdebug mcrypt
-
-# Setup AMQP
-RUN apt-get update \
-    && apt-get install -y \
-        librabbitmq-dev \
-        libssh-dev \
-    && docker-php-ext-install \
-        bcmath \
-    && pecl install amqp \
-    && docker-php-ext-enable amqp
+        && docker-php-ext-enable opcache xdebug mcrypt redis
 
 RUN version=$(php -r "echo PHP_MAJOR_VERSION.PHP_MINOR_VERSION;") \
     && curl -A "Docker" -o /tmp/blackfire-probe.tar.gz -D - -L -s https://blackfire.io/api/v1/releases/probe/php/linux/amd64/$version \

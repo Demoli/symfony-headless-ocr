@@ -40,8 +40,14 @@ services:
       - MYSQL_ROOT_PASSWORD=root
       - MYSQL_DATABASE=docker
 
+  redis:
+    container_name: ocr-queueredis
+    image: redis:alpine
+    ports:
+      - "6379:6379"
+
   rabbitmq:
-    container_name: ocr-queue_rabbitmq
+    container_name: ocr-queue-rabbitmq
     image: 'bitnami/rabbitmq:latest'
     environment:
       RABBITMQ_USERNAME: root

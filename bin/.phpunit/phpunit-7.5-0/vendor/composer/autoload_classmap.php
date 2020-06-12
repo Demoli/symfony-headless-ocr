@@ -683,6 +683,8 @@ return array(
     'Symfony\\Bridge\\PhpUnit\\Legacy\\CoverageListenerForV6' => $vendorDir . '/symfony/phpunit-bridge/Legacy/CoverageListenerForV6.php',
     'Symfony\\Bridge\\PhpUnit\\Legacy\\CoverageListenerForV7' => $vendorDir . '/symfony/phpunit-bridge/Legacy/CoverageListenerForV7.php',
     'Symfony\\Bridge\\PhpUnit\\Legacy\\CoverageListenerTrait' => $vendorDir . '/symfony/phpunit-bridge/Legacy/CoverageListenerTrait.php',
+    'Symfony\\Bridge\\PhpUnit\\Legacy\\ExpectDeprecationTraitBeforeV8_4' => $vendorDir . '/symfony/phpunit-bridge/Legacy/ExpectDeprecationTraitBeforeV8_4.php',
+    'Symfony\\Bridge\\PhpUnit\\Legacy\\ExpectDeprecationTraitForV8_4' => $vendorDir . '/symfony/phpunit-bridge/Legacy/ExpectDeprecationTraitForV8_4.php',
     'Symfony\\Bridge\\PhpUnit\\Legacy\\PolyfillAssertTrait' => $vendorDir . '/symfony/phpunit-bridge/Legacy/PolyfillAssertTrait.php',
     'Symfony\\Bridge\\PhpUnit\\Legacy\\PolyfillTestCaseTrait' => $vendorDir . '/symfony/phpunit-bridge/Legacy/PolyfillTestCaseTrait.php',
     'Symfony\\Bridge\\PhpUnit\\Legacy\\SetUpTearDownTraitForV5' => $vendorDir . '/symfony/phpunit-bridge/Legacy/SetUpTearDownTraitForV5.php',
