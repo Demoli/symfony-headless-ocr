@@ -14,6 +14,7 @@ namespace App\Tests\Message;
 use App\Message\OcrMessage;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 use Symfony\Component\Messenger\MessageBusInterface;
+use Symfony\Component\Messenger\Stamp\SentStamp;
 
 class OcrMessageTest extends KernelTestCase
 {
@@ -30,6 +31,8 @@ class OcrMessageTest extends KernelTestCase
         $message = new OcrMessage();
         $message->setContent('Foobar');
 
-        $bus->dispatch($message);
+        $result = $bus->dispatch($message);
+
+        $this->assertArrayHasKey(SentStamp::class, $result->all());
     }
 }
