@@ -1,20 +1,30 @@
 framework:
   messenger:
-    # Uncomment this (and the failed transport below) to send failed messages to this transport for later handling.
-    # failure_transport: failed
+    serializer:
+      default_serializer: messenger.transport.symfony_serializer
+      symfony_serializer:
+        format: json
+        context: {}
 
     transports:
-      async_outbound:
+      outbound:
         dsn: '%env(MESSENGER_TRANSPORT_DSN)%'
         options:
           queues:
             async_outbound: async_outbound
-      async_inbound:
+          exchange:
+            name: outbound
+            type: direct
+
+      inbound:
         dsn: '%env(MESSENGER_TRANSPORT_DSN)%'
         options:
           queues:
             async_inbound: async_inbound
+          exchange:
+            name: inbound
+            type: direct
 
     routing:
-      App\Message\OcrMessage: async_outbound
-      App\Message\OcrResultMessage: async_inbound
+      App\Message\OcrMessage: outbound
+      App\Message\OcrResultMessage: inbound

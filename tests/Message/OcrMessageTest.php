@@ -30,23 +30,24 @@ class OcrMessageTest extends KernelTestCase
         $bus = self::$container->get(MessageBusInterface::class);
 
         $message = new OcrMessage();
-        $message->setContent('Foobar');
+        $message->setContent('Hello World');
 
         $result = $bus->dispatch($message);
 
         $this->assertArrayHasKey(SentStamp::class, $result->all());
     }
 
-    public function testInboundQueue()
-    {
-        /** @var MessageBusInterface $bus */
-        $bus = self::$container->get(MessageBusInterface::class);
-
-        $message = new OcrResultMessage();
-        $message->setContent('Foobar');
-
-        $result = $bus->dispatch($message);
-
-        $this->assertArrayHasKey(SentStamp::class, $result->all());
-    }
+//    public function testInboundQueue()
+//    {
+//        $this->markTestSkipped();
+//        /** @var MessageBusInterface $bus */
+//        $bus = self::$container->get(MessageBusInterface::class);
+//
+//        $message = new OcrResultMessage();
+//        $message->setContent('Foobar');
+//
+//        $result = $bus->dispatch($message);
+//
+//        $this->assertArrayHasKey(SentStamp::class, $result->all());
+//    }
 }
