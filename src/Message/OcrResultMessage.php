@@ -13,22 +13,39 @@ namespace App\Message;
 
 class OcrResultMessage
 {
-    /** @var string */
-    private $content;
+    private $id;
+
+    private $text;
 
     /**
-     * @return string
+     * @return mixed
      */
-    public function getContent(): string
+    public function getId()
     {
-        return $this->content;
+        return $this->id;
     }
 
     /**
-     * @param string $content
+     * @param mixed $id
      */
-    public function setContent(string $content): void
+    public function setId($id): void
     {
-        $this->content = $content;
+        $this->id = $id;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getText()
+    {
+        return $this->text;
+    }
+
+    /**
+     * @param mixed $text
+     */
+    public function setText($text): void
+    {
+        $this->text = $text;
     }
 }

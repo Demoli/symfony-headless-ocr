@@ -46,13 +46,16 @@ class UploadController extends AbstractController
 
                 // Move the file to the directory where brochures are stored
                 try {
-                    $newFile = $uploadFile->move(
-                        $this->getParameter('upload_directory'),
+                    $targetDirectory = $this->getParameter('upload_directory');
+                    $newFile         = $uploadFile->move(
+                        $targetDirectory,
                         $newFilename
                     );
 
+                    $absolute = $request->getUriForPath("/uploads/$newFilename");
+
                     $message->generateId()
-                        ->setFile($newFile->getFilename());
+                        ->setFile($absolute);
 
                     $messageBus->dispatch($message);
 
