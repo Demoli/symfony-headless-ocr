@@ -44,4 +44,11 @@ class UploadType extends AbstractType
         );
     }
 
+    /**
+     * @return string|null
+     */
+    public function getBlockPrefix()
+    {
+        return '';
+    }
 }

@@ -38,6 +38,14 @@ RUN version=$(php -r "echo PHP_MAJOR_VERSION.PHP_MINOR_VERSION;") \
     && printf "extension=blackfire.so\nblackfire.agent_socket=tcp://blackfire:8707\n" > $PHP_INI_DIR/conf.d/blackfire.ini \
     && rm -rf /tmp/blackfire /tmp/blackfire-probe.tar.gz
 
+# Install AMQP
+RUN apt-get update \
+    && apt-get install -y \
+        librabbitmq-dev \
+        libssh-dev \
+    && pecl install amqp \
+    && docker-php-ext-enable amqp
+
 #install NVM
 RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.1/install.sh | bash
 
@@ -50,18 +58,6 @@ COPY src/skywire_updates.ini $PHP_INI_DIR/conf.d/
 
 RUN sed -e 's/9000/9001/' \
         -i /usr/local/etc/php-fpm.d/zz-docker.conf
-
-#Install grunt globally
-RUN npm install grunt -g
-
-#Install n98 magerun tools
-
-
-
-RUN curl -O https://files.magerun.net/n98-magerun2.phar \
-    && chmod +x ./n98-magerun2.phar \
-    && mv ./n98-magerun2.phar /usr/local/bin/
-
 
 #Install composer
 RUN curl -sS https://getcomposer.org/installer | php \

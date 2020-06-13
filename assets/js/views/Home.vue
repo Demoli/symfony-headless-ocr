@@ -1,11 +1,18 @@
 <template>
     <div>
-        Please upload your file
+        <uploader />
+
+
     </div>
 </template>
 
 <script>
+    import Uploader from "../components/Uploader";
+
     export default {
+        components: {
+            uploader: Uploader
+        }
     };
 </script>
 
