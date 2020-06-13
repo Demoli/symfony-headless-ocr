@@ -13,7 +13,8 @@
             vueDropzone: vue2Dropzone
         },
         props: {
-            fileIds: Array
+            fileIds: Array,
+            filenames: Array
         },
         data: function () {
             let self = this;
@@ -24,6 +25,7 @@
                     maxFilesize: 10,
                     success: function (file, response) {
                         self.fileIds.push(response);
+                        self.filenames.push(file.name);
                     }
                 },
             }
