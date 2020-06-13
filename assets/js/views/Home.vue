@@ -1,8 +1,14 @@
 <template>
     <div>
-        <uploader />
-
-
+        <p v-if="files.length">
+            Your uploaded file IDs are below, please remain on this page for your results:
+        </p>
+        <ul>
+            <li v-for="fileId in files">
+                <span>{{fileId}}</span>
+            </li>
+        </ul>
+        <uploader v-bind:files.sync="files" />
     </div>
 </template>
 
@@ -12,6 +18,11 @@
     export default {
         components: {
             uploader: Uploader
+        },
+        data: function () {
+            return {
+                files: []
+            }
         }
     };
 </script>
