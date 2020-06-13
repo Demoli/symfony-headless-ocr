@@ -11,14 +11,32 @@ declare(strict_types=1);
 
 namespace App\MessageHandler;
 
+use App\Entity\OcrResult;
 use App\Message\OcrResultMessage;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Messenger\Handler\MessageHandlerInterface;
 
 class OcrResultHandler implements MessageHandlerInterface
 {
+    /**
+     * @var EntityManagerInterface
+     */
+    protected $entityManager;
+
+    public function __construct(EntityManagerInterface $entityManager)
+    {
+        $this->entityManager = $entityManager;
+    }
+
+
     public function __invoke(OcrResultMessage $message)
     {
-        echo $message->getId() . PHP_EOL;
-        echo $message->getText();
+         $result = new OcrResult();
+
+        $result->setFileId($message->getId())
+            ->setResultText($message->getText());
+
+        $this->entityManager->persist($result);
+        $this->entityManager->flush();
     }
 }

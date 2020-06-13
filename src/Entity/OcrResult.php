@@ -25,12 +25,17 @@ class OcrResult
     /**
      * @ORM\Column(type="text")
      */
-    private $text;
+    private $resultText;
 
     /**
-     * @ORM\Column(name="created", type="datetime", options={"default": "CURRENT_TIMESTAMP"})
+     * @ORM\Column(type="datetime", options={"default": "CURRENT_TIMESTAMP"})
      */
     private $created;
+
+    public function __construct()
+    {
+        $this->created = new \DateTime();
+    }
 
     public function getId(): ?int
     {
@@ -49,14 +54,14 @@ class OcrResult
         return $this;
     }
 
-    public function getText(): ?string
+    public function getResultText(): ?string
     {
-        return $this->text;
+        return $this->resultText;
     }
 
-    public function setText(string $text): self
+    public function setResultText(string $resultText): self
     {
-        $this->text = $text;
+        $this->resultText = $resultText;
 
         return $this;
     }
