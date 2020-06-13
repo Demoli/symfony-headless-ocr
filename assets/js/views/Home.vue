@@ -1,23 +1,27 @@
 <template>
     <div>
-        <p v-if="fileIds.length">
-            Your uploaded file IDs are below, please remain on this page for your results:
-        </p>
-        <h2>Queued Files</h2>
-        <ul>
-            <li v-for="fileId in fileIds">
-                <span>{{fileId}}</span>
-            </li>
-        </ul>
-        <h2>Results</h2>
-        <ul>
-            <li v-for="fileResult in fileResults">
-                <p>{{fileResult.fileId}}</p>
-                <p>{{fileResult.resultText}}</p>
-            </li>
-        </ul>
         <h2>Upload Files</h2>
         <uploader v-bind:fileIds.sync="fileIds"/>
+        <div v-if="fileIds.length">
+            <pp>
+                Your uploaded file IDs are below, please remain on this page for your results:
+            </pp>
+            <h2>Queued Files</h2>
+            <ul>
+                <li v-for="fileId in fileIds">
+                    <span>{{fileId}}</span>
+                </li>
+            </ul>
+        </div>
+        <div v-if="fileResults.length">
+            <h2>Results</h2>
+            <ul>
+                <li v-for="fileResult in fileResults">
+                    <p>{{fileResult.fileId}}</p>
+                    <p>{{fileResult.resultText}}</p>
+                </li>
+            </ul>
+        </div>
     </div>
 </template>
 
