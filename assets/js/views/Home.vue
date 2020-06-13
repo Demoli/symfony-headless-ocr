@@ -31,10 +31,7 @@
         data: function () {
             return {
                 polling: null,
-                fileIds: [
-                    'ce44bd90-d634-4fcc-bf33-19bd4fbb1eee',
-                    '9aa26cde-6fc1-4f4b-ad41-6a485d63b5f7'
-                ],
+                fileIds: [],
                 fileResults: [],
             }
         },
