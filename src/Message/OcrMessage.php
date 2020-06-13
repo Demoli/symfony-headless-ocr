@@ -11,24 +11,56 @@ declare(strict_types=1);
 
 namespace App\Message;
 
+use Symfony\Component\Uid\Uuid;
+
 class OcrMessage
 {
-    /** @var string */
-    private $content;
+    protected $id;
+
+    protected $file;
 
     /**
-     * @return string
+     * @return mixed
      */
-    public function getContent(): string
+    public function getId()
     {
-        return $this->content;
+        return $this->id;
     }
 
     /**
-     * @param string $content
+     * @param mixed $id
      */
-    public function setContent(string $content): void
+    public function setId($id)
     {
-        $this->content = $content;
+        $this->id = $id;
+
+        return $this;
     }
+
+    public function generateId()
+    {
+        $this->setId(Uuid::v4());
+
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getFile()
+    {
+        return $this->file;
+    }
+
+    /**
+     * @param mixed $file
+     */
+    public function setFile($file)
+    {
+        $this->file = $file;
+
+        return $this;
+    }
+
+
 }

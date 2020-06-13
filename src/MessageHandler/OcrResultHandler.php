@@ -18,6 +18,7 @@ class OcrResultHandler implements MessageHandlerInterface
 {
     public function __invoke(OcrResultMessage $message)
     {
-        echo get_class($message) . ' handler hit, but not yet implemented' . PHP_EOL;
+        echo $message->getId() . PHP_EOL;
+        echo $message->getText();
     }
 }
