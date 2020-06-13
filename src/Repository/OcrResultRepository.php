@@ -19,22 +19,22 @@ class OcrResultRepository extends ServiceEntityRepository
         parent::__construct($registry, OcrResult::class);
     }
 
-    // /**
-    //  * @return OcrResult[] Returns an array of OcrResult objects
-    //  */
-    /*
-    public function findByExampleField($value)
+    /**
+     * @param array $fileIds
+     *
+     * @return OcrResult[]
+     */
+    public function findByFileIds(array $fileIds)
     {
-        return $this->createQueryBuilder('o')
-            ->andWhere('o.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('o.id', 'ASC')
-            ->setMaxResults(10)
+        $qb     = $this->createQueryBuilder('o');
+        $result = $qb->orderBy('o.created', 'DESC')
+            ->setMaxResults(5)
+            ->add('where', $qb->expr()->in('o.fileId', $fileIds))
             ->getQuery()
-            ->getResult()
-        ;
+            ->getResult();
+
+        return $result;
     }
-    */
 
     /*
     public function findOneBySomeField($value): ?OcrResult
