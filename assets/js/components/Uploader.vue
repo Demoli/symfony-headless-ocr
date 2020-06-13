@@ -13,7 +13,7 @@
             vueDropzone: vue2Dropzone
         },
         props: {
-            files: Array
+            fileIds: Array
         },
         data: function () {
             let self = this;
@@ -23,9 +23,8 @@
                     thumbnailWidth: 200,
                     maxFilesize: 10,
                     success: function (file, response) {
-                        self.files.push(response);
+                        self.fileIds.push(response);
                     }
-                    // headers: {"My-Awesome-Header": "header value"}
                 },
             }
         }
