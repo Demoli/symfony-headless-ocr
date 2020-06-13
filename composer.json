@@ -15,8 +15,10 @@
         "symfony/mime": "5.1.*",
         "symfony/redis-messenger": "5.1.*",
         "symfony/serializer-pack": "^1.0",
+        "symfony/twig-pack": "^1.0",
         "symfony/uid": "5.1.*",
         "symfony/validator": "5.1.*",
+        "symfony/webpack-encore-bundle": "^1.7",
         "symfony/yaml": "5.1.*"
     },
     "require-dev": {

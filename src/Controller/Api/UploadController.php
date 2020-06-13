@@ -17,9 +17,11 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Messenger\MessageBusInterface;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\String\Slugger\SluggerInterface;
+use Throwable;
 
 class UploadController extends AbstractController
 {
@@ -47,7 +49,7 @@ class UploadController extends AbstractController
                 // Move the file to the directory where brochures are stored
                 try {
                     $targetDirectory = $this->getParameter('upload_directory');
-                    $newFile         = $uploadFile->move(
+                    $uploadFile->move(
                         $targetDirectory,
                         $newFilename
                     );
@@ -59,9 +61,9 @@ class UploadController extends AbstractController
 
                     $messageBus->dispatch($message);
 
-                    return $this->json($newFilename);
-                } catch (FileException $e) {
-                    throw $e;
+                    return new Response((string)$message->getId(), 200);
+                } catch (Throwable $e) {
+                    return new Response(null, 500);
                 }
             }
         }

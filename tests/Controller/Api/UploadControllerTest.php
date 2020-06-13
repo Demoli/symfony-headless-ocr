@@ -32,11 +32,10 @@ class UploadControllerTest extends WebTestCase
         copy(__DIR__. '/_files/upload-test.jpg', __DIR__. '/_files/upload-tmp.jpg');
         $file = new UploadedFile(__DIR__. '/_files/upload-tmp.jpg', 'upload.jpg', 'image/jpeg');
 
-        $this->client->request('POST', 'api/upload', [], ['upload' => ['file' => $file]]);
+        $this->client->request('POST', 'api/upload', [], ['file' => $file]);
 
         $response = $this->client->getResponse()->getContent();
 
-        $this->assertContains('upload-', $response);
-        $this->assertContains('.jpeg', $response);
+        $this->assertResponseStatusCodeSame(200);
     }
 }
