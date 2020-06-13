@@ -13,6 +13,7 @@
         "symfony/framework-bundle": "5.1.*",
         "symfony/messenger": "5.1.*",
         "symfony/mime": "5.1.*",
+        "symfony/orm-pack": "^1.0",
         "symfony/redis-messenger": "5.1.*",
         "symfony/serializer-pack": "^1.0",
         "symfony/twig-pack": "^1.0",
@@ -22,6 +23,7 @@
         "symfony/yaml": "5.1.*"
     },
     "require-dev": {
+        "symfony/maker-bundle": "^1.19",
         "symfony/phpunit-bridge": "^5.1"
     },
     "config": {
